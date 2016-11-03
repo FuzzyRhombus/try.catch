@@ -21,7 +21,7 @@ TryCatcher.prototype = {
         return this;
     },
     finally: function (fn) {
-        if (!this.done) fn.call(this.context);
+        if (!this.done) fn.call(this.context, this.value, this.error);
         this.done = true;
         return this;
     }

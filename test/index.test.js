@@ -61,7 +61,13 @@ test('finally blocks', function (t) {
         .catch(catchSpy1)
         .finally(finallySpy);
     t.ok(finallySpy.called, 'always calls finally callback if given');
+    t.ok(finallySpy.calledWith(null, error), 'calls finally with the return value and error if present');
     t.ok(catchSpy1.calledOnce && finallySpy.calledOnce, 'stops calling any callbacks chained after first finally');
+
+    Try(tryOk)
+        .finally(finallySpy);
+    t.ok(finallySpy.secondCall.calledWith(returnVal, null), 'calls finally callback with return value if any');
+
     t.end();
 });
 
