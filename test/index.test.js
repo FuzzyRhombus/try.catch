@@ -35,11 +35,13 @@ test('catching errors', function (t) {
     var result = catcher.catch(catchSpy1);
     t.equal(result, catcher, 'returns chainable catcher');
     t.equal(catchSpy1.callCount, 0, 'does not call catch callback if no error is caught');
+    t.throws(tryThrow, Error);
 
     Try(tryThrow)
         .catch(catchSpy1)
-        .catch([Error, TypeError], catchSpy2)
+        .catch([TypeError, Error], catchSpy2)
         .catch(TypeError, catchSpy3)
+        .catch([EvalError, RangeError], catchSpy3)
         .finally(finallySpy)
         .catch(catchSpy1)
         .finally(finallySpy);
