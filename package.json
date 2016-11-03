@@ -24,5 +24,10 @@
     "sinon": "^1.17.6",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FuzzyRhombus/try.catch.git"
+  },
+  "bugs": "https://github.com/FuzzyRhombus/try.catch/issues"
 }
