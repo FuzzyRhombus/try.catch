@@ -27,13 +27,17 @@ TryCatcher.prototype = {
     }
 };
 
-module.exports = function Try (fn, context) {
-    var catcher = new TryCatcher(context);
+function _try (fn, args) {
     try {
-        catcher.value = fn && fn.apply(catcher.context, Array.prototype.slice.call(arguments, 2));
+        this.value = fn && fn.apply(this.context, args);
     }
     catch (error) {
-        catcher.error = error;
+        this.error = error;
     }
+}
+
+module.exports = function Try (fn, context) {
+    var catcher = new TryCatcher(context);
+    _try.call(catcher, fn, Array.prototype.slice.call(arguments, 2));
     return catcher;
 };
