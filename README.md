@@ -1,4 +1,4 @@
-# try.catch
+# try.catch [![Build Status](https://travis-ci.org/FuzzyRhombus/try.catch.svg?branch=master)](https://travis-ci.org/FuzzyRhombus/try.catch)
 ## Simple performant try-catch wrapper.
 
 This utility is used *in place of* regular `try/catch` blocks using a clean functional syntax. Execution is **fully synchronous**; this does not work with async methods
