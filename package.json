@@ -4,7 +4,7 @@
   "description": "Simple performant try-catch wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.test.js | tap-spec"
+    "test": "jshint index.js && covert test/*.test.js | tap-spec"
   },
   "keywords": [
     "try",
@@ -19,6 +19,8 @@
   "author": "Ryan Mastrolia <ryan.mastrolia@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "covert": "^1.1.0",
+    "jshint": "^2.9.4",
     "sinon": "^1.17.6",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.2"
